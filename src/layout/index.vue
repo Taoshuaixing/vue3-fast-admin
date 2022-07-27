@@ -1,12 +1,12 @@
 <template>
 	<div class="common-layout">
 		<el-container>
-			<el-header><Headers /></el-header>
+			<el-header class="container"><Headers /></el-header>
 			<el-container>
 				<el-aside :width="asilderWidth">
-					<Menu />
+					<Menu></Menu>
 				</el-aside>
-				<el-main><router-view /></el-main>
+				<el-main><router-view></router-view></el-main>
 			</el-container>
 		</el-container>
 	</div>
@@ -24,4 +24,26 @@
 	});
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+	.common-layout {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	.container {
+		width: calc(100% - '67px');
+		height: 100%;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 9;
+		transition: all 0.3s;
+
+		&.hidderContainer {
+			width: calc(100% - '210px');
+		}
+	}
+	::v-deep .el-header {
+		padding: 0;
+	}
+</style>

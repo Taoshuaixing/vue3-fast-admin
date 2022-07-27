@@ -5,6 +5,7 @@
 		:default-active="defaultActive"
 		touter
 		unique-opened
+		:collapse="false"
 	>
 		<el-sub-menu :index="it.id" v-for="it in list" :key="it.id">
 			<template #title>
@@ -21,7 +22,11 @@
 			>
 				<template #title>
 					<el-icon><component :is="item.icon"></component></el-icon>
-					<span>{{ item.path }}</span>
+					<span
+						><router-link :to="item.path">{{
+							item.authName
+						}}</router-link></span
+					>
 				</template>
 			</el-menu-item>
 		</el-sub-menu>
@@ -47,14 +52,12 @@
 		method: 'get',
 		url: '/menuList',
 	}).then(({ data }) => {
-		// console.log(data);
 		list.value = data.result;
 		console.log(list.value);
 	});
 
 	const savePath = (path: string) => {
 		sessionStorage.setItem('path', `/${path}`);
-		console.log(path);
 	};
 </script>
 
