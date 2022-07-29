@@ -1,5 +1,6 @@
+import userMockList from './modules/user';
 import Mock from 'mockjs';
-import menuList from './menuList';
+import menuList from './modules/menuList';
 
 Mock.setup({
 	timeout: '200-600',
