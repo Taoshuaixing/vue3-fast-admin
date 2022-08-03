@@ -1,7 +1,7 @@
 <template>
-  <div>rights</div>
+  <h1>菜单1-1</h1>
 </template>
 
-<script setup></script>
+<script></script>
 
 <style lang="scss" scoped></style>

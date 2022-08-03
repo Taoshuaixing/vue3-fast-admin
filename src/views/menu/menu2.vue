@@ -1,7 +1,7 @@
 <template>
-  <div>categories</div>
+  <h1>菜单2</h1>
 </template>
 
-<script setup></script>
+<script></script>
 
 <style lang="scss" scoped></style>

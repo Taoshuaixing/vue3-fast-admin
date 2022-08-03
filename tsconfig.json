@@ -11,16 +11,12 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"lib": ["esnext", "dom"],
-		"skipLibCheck": true,
-		"types": ["vite/client", "jest"],
-		"typeRoots": ["./node_modules/@types/", "./types"],
-		"baseUrl": "./",
-		"outDir": "./",
-		"rootDir": "./",
-		"paths": {
-			"@/*": ["src/*"],
-			"#/*": ["types/*"]
-		}
+		"skipLibCheck": true
+	},
+	"typeRoots": ["./node_modules/@types/", "./types"],
+	"paths": {
+		"@/*": ["src/*"],
+		"#/*": ["types/*"]
 	},
 	"include": [
 		"src/**/*.ts",
@@ -33,5 +29,6 @@
 		"tests/**/*.ts",
 		"vite.config.ts"
 	],
-	"exclude": ["node_modules", "dist", "**/*.js"]
+	"exclude": ["node_modules", "dist", "**/*.js"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

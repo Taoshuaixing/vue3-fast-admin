@@ -1,64 +1,113 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
-const routes: Array<RouteRecordRaw> = [
-	{
-		path: '/login',
-		name: 'Login',
-		component: () => import('../views/login/index.vue'),
-	},
+export const constantRoutes: Array<RouteRecordRaw> = [
+	// {
+	// 	path: '/login',
+	// 	component: () => import('@/views/login/index.vue'),
+	// 	meta: {
+	// 		title: '登录',
+	// 	},
+	// },
+	// {
+	// 	path: '/404',
+	// 	component: () => import('@/views/error-page/404.vue'),
+	// 	meta: {
+	// 		title: '404',
+	// 	},
+	// },
+	// {
+	// 	path: '/401',
+	// 	component: () => import('@/views/error-page/401.vue'),
+	// 	meta: {
+	// 		title: '401',
+	// 	},
+	// },
 	{
 		path: '/',
-		name: '/',
-		component: () => import('../layout/index.vue'),
-		redirect: '/users',
+		component: () => import('@/layout/index.vue'),
+		redirect: '/home',
 		children: [
 			{
-				path: 'users',
-				name: 'users',
-				component: () => import('../views/users/index.vue'),
+				path: '/home',
+				component: () => import('@/views/home/index.vue'),
+				name: 'Home',
+				meta: { title: '首页', icon: 'el-icon-s-home', affix: true },
 			},
 			{
-				path: 'categories',
-				name: 'categories',
-				component: () => import('../views/categories/index.vue'),
+				path: '/setting',
+				component: () => import('@/views/setting/index.vue'),
+				name: 'Setting',
+				meta: { title: '设置', icon: 'el-icon-setting', roles: ['admin'] },
 			},
 			{
-				path: 'goods',
-				name: 'goods',
-				component: () => import('../views/goods/index.vue'),
+				path: '/menu',
+				name: 'Menu',
+				component: () => import('@/views/menu/index.vue'),
+				meta: {
+					title: '菜单',
+					icon: 'el-icon-menu',
+					roles: ['admin', 'editor'],
+				},
+				redirect: '/menu2',
+				children: [
+					{
+						path: '/menu1',
+						name: 'Menu1',
+						component: () => import('@/views/menu/menu10.vue'),
+						meta: { title: '菜单1', roles: ['admin', 'editor'] },
+						redirect: '/menu1-2',
+						children: [
+							{
+								path: '/menu1-1',
+								component: () => import('@/views/menu/menu11.vue'),
+								name: 'Menu1-1',
+								meta: { title: '菜单1-1', roles: ['admin'] },
+							},
+							{
+								path: '/menu1-2',
+								component: () => import('@/views/menu/menu12.vue'),
+								name: 'Menu1-2',
+								meta: { title: '菜单1-2', roles: ['admin', 'editor'] },
+							},
+						],
+					},
+					{
+						path: '/menu2',
+						component: () => import('@/views/menu/menu2.vue'),
+						name: 'Menu2',
+						meta: { title: '菜单2', roles: ['admin', 'editor'] },
+					},
+				],
 			},
 			{
-				path: 'orders',
-				name: 'orders',
-				component: () => import('../views/orders/index.vue'),
+				path: '/star',
+				component: () => import('@/views/star/index.vue'),
+				name: 'Star',
+				meta: {
+					title: '图表',
+					icon: 'el-icon-s-data',
+					roles: ['admin', 'editor'],
+				},
 			},
 			{
-				path: 'params',
-				name: 'params',
-				component: () => import('../views/params/index.vue'),
-			},
-			{
-				path: 'reports',
-				name: 'reports',
-				component: () => import('../views/reports/index.vue'),
-			},
-			{
-				path: 'rights',
-				name: 'rights',
-				component: () => import('../views/rights/index.vue'),
-			},
-			{
-				path: 'roles',
-				name: 'roles',
-				component: () => import('../views/roles/index.vue'),
+				path: '/xueyue',
+				component: () => import('@/views/xueyue/index.vue'),
+				name: 'Xueyue',
+				meta: {
+					title: '雪月',
+					icon: 'el-icon-s-flag',
+					roles: ['admin', 'editor'],
+				},
 			},
 		],
 	},
 ];
 
-const router = createRouter({
+export const asyncRoutes = [];
+
+export const router = createRouter({
 	history: createWebHashHistory(),
-	routes,
+	routes: constantRoutes,
 });
 
 export default router;
