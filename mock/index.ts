@@ -1,14 +1,3 @@
-import userMockList from './modules/user';
-import Mock from 'mockjs';
-import menuList from './modules/menuList';
+import userModules from './modules/user';
 
-Mock.setup({
-	timeout: '200-600',
-});
-
-Mock.mock(/\menuList/, 'get', () => {
-	return {
-		code: 0,
-		result: menuList,
-	};
-});
+export default [...userModules];

@@ -11,13 +11,13 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"lib": ["esnext", "dom"],
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
 	},
 	"typeRoots": ["./node_modules/@types/", "./types"],
-	"paths": {
-		"@/*": ["src/*"],
-		"#/*": ["types/*"]
-	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.d.ts",

@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
 	<div class="login-wrap">
 		<div class="login-content">
 			<div class="login-title">系统登录</div>
@@ -55,7 +55,7 @@
 	import { useRouter } from 'vue-router';
 	import store from '@/store';
 	import { ElMessage } from 'element-plus';
-	import { validate } from '@/utils/formExtend';
+	// import { validate } from '@/utils/formExtend';
 
 	const router = useRouter();
 
@@ -81,7 +81,9 @@
 	};
 
 	const submitForm = async () => {
-		const valid: boolean = await validate(loginFormRef);
+		// const valid: boolean = await validate(loginFormRef);
+		const valid: boolean = true;
+
 		if (valid) {
 			btnLoading.value = true;
 			store.dispatch('user/login', param).then(() => {
@@ -192,4 +194,4 @@
 			user-select: none;
 		}
 	}
-</style> -->
+</style>
