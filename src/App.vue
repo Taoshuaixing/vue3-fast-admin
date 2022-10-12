@@ -1,4 +1,4 @@
 <template>
-	<div>111</div>
+	<router-view />
 </template>
 <style lang="less" scoped></style>
