@@ -17,13 +17,13 @@ const System: Array<RouteRecordRaw> = [
 				component: () => import('@/views/system/404.vue'),
 				meta: { title: '404页面' },
 			},
-			{
-				path: '/login',
-				name: 'login',
-				meta: { title: '登陆页面', icon: '', showMenu: false },
-				component: () => import('@/views/login/index.vue'),
-			},
 		],
+	},
+	{
+		path: '/login',
+		name: 'login',
+		meta: { title: '登陆页面', icon: '', showMenu: false },
+		component: () => import('@/views/system/login.vue'),
 	},
 ];
 

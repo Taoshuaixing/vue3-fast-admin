@@ -8,10 +8,10 @@ import NProgress from '@/utils/nprogress';
 import { System, Dashboard, Demo, AsyncRooutes } from './modules';
 
 const routes: Array<RouteRecordRaw> = [
-	...Dashboard,
+	// ...Dashboard,
 	...System,
-	...Demo,
-	...AsyncRooutes,
+	// ...Demo,
+	// ...AsyncRooutes,
 ];
 
 //生成路由
