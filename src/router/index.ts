@@ -19,6 +19,25 @@ export const asyncRoutes = [
 			title: '401',
 		},
 	},
+	{
+		path: '/',
+		component: () => import('@/layout/index.vue'),
+		redirect: '/home',
+		children: [
+			{
+				path: '/home',
+				component: () => import('@/views/home/index.vue'),
+				name: 'Home',
+				meta: { title: '首页', icon: 'el-icon-s-home', affix: true },
+			},
+			{
+				path: '/setting',
+				component: () => import('@/views/setting/index.vue'),
+				name: 'Setting',
+				meta: { title: '设置', icon: 'el-icon-setting', roles: ['admin'] },
+			},
+		],
+	},
 ];
 
 export const router = createRouter({
