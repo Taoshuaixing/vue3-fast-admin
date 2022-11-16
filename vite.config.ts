@@ -1,19 +1,16 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-const srcPath = resolve(__dirname, 'src');
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
+
+const pathReslove = (dir: string) => resolve(__dirname, dir)
+
 export default defineConfig({
-	plugins: [vue()],
-	resolve: {
-		alias: {
-			'@/': `${srcPath}/`,
-		},
-	},
-	css: {
-		preprocessorOptions: {
-			less: {
-				additionalData: `@import "./src/styles/base.less";`,
-			},
-		},
-	},
-});
+  plugins: [vue()],
+
+  resolve: {
+    alias: {
+      '@': pathReslove('./src'),
+      views: pathReslove('./src/views')
+    }
+  }
+})

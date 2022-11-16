@@ -1,16 +1,15 @@
-import { configure, start, done } from 'nprogress' // progress bar
+import NProgress from '@/utils/nprogress'
 import 'nprogress/nprogress.css' // progress bar style
 import router from './router'
 import { getToken, getRoles } from './utils/auth' // get token from cookie
 import getPageTitle from './utils/get-page-title'
-configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login'] // no redirect whitelist
 
 router.beforeEach(async (to: any, from: any, next) => {
   console.log('beforeEach: from', from)
   // start progress bar
-  start()
+  NProgress.start()
   // determine whether the user has logged in  确定用户是否已登录
   const hasToken = getToken()
   if (hasToken) {
@@ -19,7 +18,7 @@ router.beforeEach(async (to: any, from: any, next) => {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
       next({ path: '/' })
-      done()
+      NProgress.done()
     } else {
       const roles = getRoles()
       const routes = router.getRoutes().filter((r) => r.path === to.path)
@@ -44,12 +43,12 @@ router.beforeEach(async (to: any, from: any, next) => {
     } else {
       // other pages that do not have permission to access are redirected to the login page.  其他没有访问权限的页面将被重定向到登录页面。
       next('/login')
-      done()
+      NProgress.done()
     }
   }
 })
 
 router.afterEach(() => {
   // finish progress bar
-  done()
+  NProgress.done()
 })
