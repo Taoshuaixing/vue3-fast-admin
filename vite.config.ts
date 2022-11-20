@@ -10,7 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': pathReslove('./src'),
-      views: pathReslove('./src/views')
+      views: pathReslove('./src/views'),
+      '#': resolve(__dirname, 'src/@types')
     }
   }
 })

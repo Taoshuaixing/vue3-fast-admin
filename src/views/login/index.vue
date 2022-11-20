@@ -6,20 +6,17 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <!-- <input type="text" placeholder="Username" /> -->
-            <el-input v-model="param.userName" placeholder="Username" autofocus="true" size="small" />
+            <input type="text" placeholder="Username" v-model="loginForm.userName" />
+            <!-- <el-input v-model="param.userName" placeholder="Username" autofocus="true" size="small" /> -->
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <!-- <input type="password" placeholder="Password" /> -->
-            <el-input :type="passwordType" v-model="param.password" placeholder="Password" show-password="true" />
+            <input type="password" placeholder="Password" v-model="loginForm.password" />
+            <!-- <el-input :type="passwordType" v-model="param.password" placeholder="Password" show-password="true" /> -->
           </div>
-          <input class="btn solid" type="submit" value="Login" />
+          <input class="btn solid" type="submit" value="Login" @click="submitForm" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
             <a href="#" class="social-icon">
               <i class="fab fa-weixin"></i>
             </a>
@@ -27,7 +24,10 @@
               <i class="fab fa-qq"></i>
             </a>
             <a href="#" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
+              <i class="fab fa-alipay"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-"></i>
             </a>
           </div>
         </form>
@@ -50,34 +50,26 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import '@/assets/font-text.js'
+import { useRouter } from 'vue-router'
+import store from '@/store'
 
-const passwordType = ref('password')
-const param = reactive({
+// const passwordType = ref('password')
+const loginForm = reactive({
   userName: '',
   password: ''
 })
+const router = useRouter()
+const submitForm = async () => {
+  store.dispatch('user/login', loginForm).then(() => {
+    router.push('/')
+  })
+}
 </script>
 
 <style lang="less" scoped>
 @import '@/styles/font-text.css';
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-body,
-input {
-  font-family: 'Poppins', sans-serif;
-}
 
 .container {
   position: relative;
