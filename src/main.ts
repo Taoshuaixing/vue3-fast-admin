@@ -10,5 +10,6 @@ import 'element-plus/dist/index.css'
 import './permission'
 import './styles/index.scss'
 import store from './store'
+
 const app = createApp(App)
 app.use(ElementPlus).use(router).use(store).mount('#app')

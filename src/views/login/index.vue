@@ -2,19 +2,34 @@
   <div class="container" ref="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <el-form ref="loginFormRef" :rules="rules" :model="loginForm" class="login-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" v-model="loginForm.userName" />
-            <!-- <el-input v-model="param.userName" placeholder="Username" autofocus="true" size="small" /> -->
+            <el-form-item prop="username">
+              <el-input
+                v-model="loginForm.username"
+                type="text"
+                autocomplete="off"
+                autofocus="true"
+                placeholder="Username"
+              />
+            </el-form-item>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" v-model="loginForm.password" />
-            <!-- <el-input :type="passwordType" v-model="param.password" placeholder="Password" show-password="true" /> -->
+            <el-form-item prop="password">
+              <el-input
+                v-model="loginForm.password"
+                placeholder="Password"
+                type="password"
+                autocomplete="off"
+                @keyup.enter="submitForm"
+              />
+            </el-form-item>
           </div>
-          <input class="btn solid" type="submit" value="Login" @click="submitForm" />
+          <!-- <input class="btn solid" type="submit" value="Login" @click="submitForm" /> -->
+          <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button>
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -27,13 +42,12 @@
               <i class="fab fa-alipay"></i>
             </a>
             <a href="#" class="social-icon">
-              <i class="fab fa-"></i>
+              <i class="fab fa-twitter"></i>
             </a>
           </div>
-        </form>
+        </el-form>
       </div>
     </div>
-
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
@@ -42,7 +56,6 @@
             Online tutor Finder provides students the best way to reach out the best tutor for them. Know more about us
             <a href="file:///G:/AGILE%20workshop/Website/Home%20Page/index.html">here</a>.
           </p>
-          <!-- <button class="btn transparent" id="sign-up-btn" @click="signUpBtn">Sign up</button> -->
         </div>
         <img src="@/assets/log.svg" class="image" alt="" />
       </div>
@@ -50,20 +63,42 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import '@/assets/font-text.js'
 import { useRouter } from 'vue-router'
 import store from '@/store'
+import { ElMessage } from 'element-plus'
+import type { FormInstance } from 'element-plus'
 
-// const passwordType = ref('password')
+const loginFormRef = ref<FormInstance>()
+const router = useRouter()
+const btnLoading = ref<boolean>(false)
 const loginForm = reactive({
-  userName: '',
+  username: '',
   password: ''
 })
-const router = useRouter()
+
+const rules = reactive({
+  username: [{ required: true, message: 'Please input the username', trigger: 'blur' }],
+  password: [{ required: true, message: 'Please input the password', trigger: 'blur' }]
+})
+
 const submitForm = async () => {
-  store.dispatch('user/login', loginForm).then(() => {
-    router.push('/')
+  loginFormRef.value?.validate((valid) => {
+    console.log(valid)
+    if (valid) {
+      btnLoading.value = true
+      store
+        .dispatch('user/login', loginForm)
+        .then(() => {
+          router.push('/')
+        })
+        .finally(() => {
+          btnLoading.value = false
+        })
+    } else {
+      ElMessage.error('请输入用户名和密码')
+    }
   })
 }
 </script>

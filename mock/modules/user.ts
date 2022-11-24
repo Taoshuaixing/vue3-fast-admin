@@ -42,8 +42,6 @@ const userMockList: MockMethod[] = [
     timeout: 1000,
     statusCode: 200,
     response: ({ body }: any) => {
-      console.log(body)
-
       let flag = -1
       userList.forEach((item, index) => {
         if (item.username === body.username && item.password === body.password) {
