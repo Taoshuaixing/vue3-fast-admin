@@ -13,6 +13,7 @@
                 autocomplete="off"
                 autofocus="true"
                 placeholder="Username"
+                :prefix-icon="User"
               />
             </el-form-item>
           </div>
@@ -25,11 +26,12 @@
                 type="password"
                 autocomplete="off"
                 @keyup.enter="submitForm"
+                :prefix-icon="Lock"
               />
             </el-form-item>
           </div>
-          <!-- <input class="btn solid" type="submit" value="Login" @click="submitForm" /> -->
-          <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button>
+          <input class="btn solid" type="submit" value="Login" @click="submitForm" />
+          <!-- <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button> -->
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -69,6 +71,7 @@ import { useRouter } from 'vue-router'
 import store from '@/store'
 import { ElMessage } from 'element-plus'
 import type { FormInstance } from 'element-plus'
+import { User, Lock } from '@element-plus/icons-vue'
 
 const loginFormRef = ref<FormInstance>()
 const router = useRouter()
