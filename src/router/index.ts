@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 17:17:19
+ * @LastEditTime: 2023-06-27 17:48:07
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -15,17 +15,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/views/login/index.vue'),
     meta: { title: '登录页面' }
   },
-  // {
-  //   path: '/404',
-  //   component: () => import('../views/erro-page/404.vue')
-  // },
-  // {
-  //   path: '/401',
-  //   component: () => import('../views/error-page/401.vue'),
-  //   meta: {
-  //     title: '401'
-  //   }
-  // },
+
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
@@ -90,6 +80,20 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import('@/views/xueyue/index.vue'),
         name: 'Xueyue',
         meta: { title: '雪月', icon: 'Flag', roles: ['admin'] }
+      },
+      {
+        path: '/404',
+        component: () => import('@/views/erro-page/404.vue'),
+        meta: {
+          title: '404'
+        }
+      },
+      {
+        path: '/401',
+        component: () => import('@/views/erro-page/401.vue'),
+        meta: {
+          title: '401'
+        }
       }
     ]
   }
