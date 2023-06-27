@@ -13,6 +13,7 @@ const userModule: Module<User, any> = {
     avatar: getAvatar(),
     introduction: ''
   },
+
   mutations: {
     SET_TOKEN: (state, token: string) => {
       state.token = token

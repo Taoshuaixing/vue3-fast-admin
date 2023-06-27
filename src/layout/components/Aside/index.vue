@@ -4,17 +4,17 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:23
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 17:32:57
+ * @LastEditTime: 2023-06-27 18:38:23
 -->
 <template>
   <el-menu
-    active-text-color="#ffd04b"
-    background-color="#545c64"
-    class="el-menu-vertical-demo"
-    default-active="2"
+    :router="true"
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :show-timeout="200"
     text-color="#fff"
-    @open="handleOpen"
-    @close="handleClose"
+    background-color="#4a5a74"
+    active-text-color="#409EFF"
   >
     <AsideItem
       v-for="item of routerList"
@@ -26,12 +26,6 @@
 </template>
 
 <script setup lang='ts'>
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
 import { reactive, computed, onMounted } from 'vue'
 import store from '@/store'
 import { constantRoutes } from '@/router'
@@ -40,26 +34,47 @@ import AsideItem from './AsideItem.vue'
 
 const roles = getRoles()
 const routerList: any[] = reactive([])
+const opened = computed(() => store.state.app.sidebar.opened)
+const isCollapse = computed(() => !opened.value)
 
 onMounted(() => {
   filterRoutes()
 })
 
+/**
+ * 权限过滤路由
+ */
 const filterRoutes = () => {
-  constantRoutes.forEach(element => {
-    if (element.path === '/') {
-      const childrens = element.children as any[]
+  constantRoutes.forEach((item) => {
+    if (item.path === '/') {
+      const childrens = item.children as any[]
       routerList.push(...childrens)
     }
-    console.log(routerList);
+  })
+  for (let i = 0; i < routerList.length; i++) {
+    if (routerList[i].meta && routerList[i].meta.roles && !routerList[i].meta.roles.includes(roles)) {
+      routerList.splice(i, 1)
+      i--
+    }
+  }
+  filterChildrens(routerList)
+}
 
-  });
-}
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+/**
+ * 权限过滤子路由
+ */
+const filterChildrens = (routers: any) => {
+  const childrens: Array<any> = []
+  routers.forEach((item: any) => {
+    if ((item.meta && !item.meta.roles) || (item.meta && item.meta.roles && item.meta.roles.includes(roles))) {
+      childrens.push(item)
+      if (item.children) {
+        filterChildrens(item.children)
+      }
+    }
+  })
+  routers.length = 0
+  routers.push(...childrens)
 }
 </script>
 

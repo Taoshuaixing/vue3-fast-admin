@@ -8,6 +8,7 @@ const permissionModule: Module<Permission, any> = {
     routes: [],
     addRoutes: []
   },
+
   mutations: {
     SET_ROUTES: (state, routes: any) => {
       state.addRoutes = routes
