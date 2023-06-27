@@ -1,13 +1,22 @@
 <template>
-  <div class="container" ref="container">
+  <div
+    class="container"
+    ref="container"
+  >
     <div class="forms-container">
       <div class="signin-signup">
-        <el-form ref="loginFormRef" :rules="rules" :model="loginForm" class="login-form">
+        <el-form
+          ref="loginFormRef"
+          :rules="rules"
+          :model="loginForm"
+          class="login-form"
+        >
           <h2 class="title">Sign in</h2>
           <div class="input-field">
-            <i class="fas fa-user"></i>
+            <!-- <i class="fas fa-user"></i> -->
             <el-form-item prop="username">
               <el-input
+                size="large"
                 v-model="loginForm.username"
                 type="text"
                 autocomplete="off"
@@ -18,9 +27,10 @@
             </el-form-item>
           </div>
           <div class="input-field">
-            <i class="fas fa-lock"></i>
+            <!-- <i class="fas fa-lock"></i> -->
             <el-form-item prop="password">
               <el-input
+                size="large"
                 v-model="loginForm.password"
                 placeholder="Password"
                 type="password"
@@ -30,20 +40,37 @@
               />
             </el-form-item>
           </div>
-          <input class="btn solid" type="submit" value="Login" @click="submitForm" />
+          <input
+            class="btn solid"
+            type="submit"
+            value="Login"
+            @click="submitForm"
+          />
           <!-- <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button> -->
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon">
+            <a
+              href="#"
+              class="social-icon"
+            >
               <i class="fab fa-weixin"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a
+              href="#"
+              class="social-icon"
+            >
               <i class="fab fa-qq"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a
+              href="#"
+              class="social-icon"
+            >
               <i class="fab fa-alipay"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a
+              href="#"
+              class="social-icon"
+            >
               <i class="fab fa-twitter"></i>
             </a>
           </div>
@@ -59,7 +86,11 @@
             <a href="file:///G:/AGILE%20workshop/Website/Home%20Page/index.html">here</a>.
           </p>
         </div>
-        <img src="@/assets/log.svg" class="image" alt="" />
+        <img
+          src="@/assets/log.svg"
+          class="image"
+          alt=""
+        />
       </div>
     </div>
   </div>
@@ -170,16 +201,21 @@ form.sign-up-form {
 }
 
 .input-field {
+  // max-width: 380px;
+  // width: 100%;
+
+  // height: 55px;
+  // background-color: #f0f0f0;
+  // margin: 10px 0;
+  // border-radius: 55px;
+  // display: grid;
+  // grid-template-columns: 15% 85%;
+  // padding: 0 0.4rem;
+  // position: relative;
   max-width: 380px;
   width: 100%;
-
   height: 55px;
-  background-color: #f0f0f0;
   margin: 10px 0;
-  border-radius: 55px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
   position: relative;
 }
 
@@ -341,9 +377,11 @@ form.sign-up-form {
 .container.sign-up-mode .left-panel .content {
   transform: translateX(-800px);
 }
+
 .container.sign-up-mode .left-panel {
   pointer-events: none;
 }
+
 .container.sign-up-mode .right-panel {
   pointer-events: all;
 }
