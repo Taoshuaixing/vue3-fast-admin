@@ -58,7 +58,7 @@ const back = () => {
 
   .pan-back-btn {
     color: #fff;
-    background: #008489;
+    background: #00bfa6;
     border: none !important;
   }
 
@@ -94,7 +94,7 @@ const back = () => {
     }
 
     a {
-      color: #008489;
+      color: #00bfa6;
       text-decoration: none;
 
       &:hover {

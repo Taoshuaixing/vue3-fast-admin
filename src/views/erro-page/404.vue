@@ -25,14 +25,6 @@
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">OOPS!</div>
-        <div class="bullshit__info">
-          All rights reserved
-          <a
-            class="blue"
-            href="https://au1996.gitee.io/blog/"
-            target="_blank"
-          >雪月</a>
-        </div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">
           Please check that the URL you entered is correct, or click the button below to return to the homepage.
@@ -51,18 +43,12 @@ const message: string = 'The webmaster said that you can not enter this page...'
 </script>
 
 <style lang="scss" scoped>
-.wscn-http404-container {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .wscn-http404 {
   position: relative;
   width: 1200px;
   padding: 0 50px;
   overflow: hidden;
+  margin: 10%;
 
   .pic-404 {
     position: relative;
@@ -205,7 +191,7 @@ const message: string = 'The webmaster said that you can not enter this page...'
       font-size: 32px;
       font-weight: bold;
       line-height: 40px;
-      color: #1482f0;
+      color: #00bfa6;
       opacity: 0;
       animation-duration: 0.5s;
       animation-name: slideUp;
@@ -247,7 +233,7 @@ const message: string = 'The webmaster said that you can not enter this page...'
       color: #fff;
       text-align: center;
       cursor: pointer;
-      background: #1482f0;
+      background: #00bfa6;
       border-radius: 100px;
       opacity: 0;
       animation-delay: 0.3s;
@@ -271,6 +257,6 @@ const message: string = 'The webmaster said that you can not enter this page...'
 }
 
 .blue {
-  color: #20a0ff;
+  color: #00bfa6;
 }
 </style>

@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: 陶帅星
+ * @Date: 2022-11-17 17:21:33
+ * @LastEditors: 陶帅星
+ * @LastEditTime: 2023-06-28 15:44:11
+ */
 import NProgress from '@/utils/nprogress'
 import 'nprogress/nprogress.css' // progress bar style
 import router from './router'
@@ -5,7 +13,6 @@ import { getToken, getRoles } from './utils/auth' // get token from cookie
 import getPageTitle from './utils/get-page-title'
 
 const whiteList = ['/login'] // no redirect whitelist
-
 router.beforeEach(async (to: any, from: any, next) => {
   console.log('beforeEach: from', from)
   // start progress bar

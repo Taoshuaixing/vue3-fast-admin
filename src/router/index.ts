@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 17:48:07
+ * @LastEditTime: 2023-06-28 14:41:45
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -25,13 +25,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         name: 'Home',
-        meta: { title: '首页', icon: 'el-icon-s-home', affix: true }
+        meta: { title: '首页', icon: 'Platform', affix: true }
       },
       {
         path: '/setting',
         component: () => import('@/views/setting/index.vue'),
         name: 'Setting',
-        meta: { title: '设置', icon: 'el-icon-setting', roles: ['admin'] }
+        meta: { title: '设置', icon: 'Tools', roles: ['admin'] }
       },
       {
         path: '/menu',
@@ -70,30 +70,37 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: '/star',
-        component: () => import('@/views/star/index.vue'),
-        name: 'Star',
+        path: '/chart',
+        component: () => import('@/views/chart/index.vue'),
+        name: 'Chart',
         meta: { title: '图表', icon: 'Histogram', roles: ['admin', 'editor'] }
       },
       {
-        path: '/xueyue',
-        component: () => import('@/views/xueyue/index.vue'),
-        name: 'Xueyue',
-        meta: { title: '雪月', icon: 'Flag', roles: ['admin'] }
-      },
-      {
-        path: '/404',
-        component: () => import('@/views/erro-page/404.vue'),
-        meta: {
-          title: '404'
-        }
-      },
-      {
-        path: '/401',
-        component: () => import('@/views/erro-page/401.vue'),
-        meta: {
-          title: '401'
-        }
+        path: '/erro-page',
+        name: 'ErroPage',
+        component: () => import('@/views/erro-page/index.vue'),
+        meta: { title: '错误页面', icon: 'WarningFilled', roles: ['admin', 'editor'] },
+        redirect: '/404',
+        children: [
+          {
+            path: '/404',
+            component: () => import('@/views/erro-page/404.vue'),
+            name: '404',
+            meta: {
+              title: '404',
+              icon: 'QuestionFilled'
+            }
+          },
+          {
+            path: '/401',
+            component: () => import('@/views/erro-page/401.vue'),
+            name: '401',
+            meta: {
+              title: '401',
+              icon: 'QuestionFilled'
+            }
+          }
+        ]
       }
     ]
   }

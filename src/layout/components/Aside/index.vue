@@ -4,25 +4,27 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:23
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 18:38:23
+ * @LastEditTime: 2023-06-28 10:12:15
 -->
 <template>
-  <el-menu
-    :router="true"
-    :default-active="$route.path"
-    :collapse="isCollapse"
-    :show-timeout="200"
-    text-color="#fff"
-    background-color="#4a5a74"
-    active-text-color="#409EFF"
-  >
-    <AsideItem
-      v-for="item of routerList"
-      :key="item.path"
-      :index="item.path"
-      :nav="item"
-    />
-  </el-menu>
+  <div class="menu">
+    <el-menu
+      :router="true"
+      :default-active="$route.path"
+      :collapse="isCollapse"
+      :show-timeout="200"
+      text-color="#fff"
+      background-color="#00bfa6"
+      active-text-color="#003739"
+    >
+      <AsideItem
+        v-for="item of routerList"
+        :key="item.path"
+        :index="item.path"
+        :nav="item"
+      />
+    </el-menu>
+  </div>
 </template>
 
 <script setup lang='ts'>

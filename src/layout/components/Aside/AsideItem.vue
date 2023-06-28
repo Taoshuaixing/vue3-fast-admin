@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:55
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 17:35:49
+ * @LastEditTime: 2023-06-28 10:11:28
 -->
 <template>
   <div
@@ -59,6 +59,12 @@
           :index="child.path"
         >
           <template #title>
+            <I
+              v-if="child.meta.icon"
+              :name="child.meta.icon"
+              size="18"
+              class="sidebar-icon"
+            />
             <span>{{ child.meta.title }}</span>
           </template>
         </el-menu-item>
