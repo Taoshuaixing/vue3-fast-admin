@@ -4,12 +4,12 @@
  * @Author: 陶帅星
  * @Date: 2022-11-20 15:26:59
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 19:31:07
+ * @LastEditTime: 2023-06-28 09:37:52
  */
 import { createStore } from 'vuex'
 import { State } from '#/store'
 
-const modulesFiles = import.meta.glob('./modules/*.ts', { eager: true })
+const modulesFiles = import.meta.globEager('./modules/*.ts')
 const moduleKeys = Object.keys(modulesFiles)
 
 const modules = moduleKeys.reduce((modules: any, modulePath: string) => {
