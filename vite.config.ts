@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 19:18:20
+ * @LastEditTime: 2023-06-29 19:26:07
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv } from 'vite'
@@ -70,10 +70,12 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       cors: true, // 允许跨域
       proxy: {
         '/api': {
-          target: '',
+          // target: '',
+          target: 'http://admin.xueyueob.cn/api',
           changeOrigin: true,
           ws: true,
-          rewrite: (path) => path.replace(new RegExp('^/api'), '')
+          // rewrite: (path) => path.replace(new RegExp('^/api'), '')
+          rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     },
