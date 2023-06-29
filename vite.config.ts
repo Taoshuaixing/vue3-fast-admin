@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 19:01:11
+ * @LastEditTime: 2023-06-29 19:07:56
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv } from 'vite'
@@ -20,7 +20,8 @@ const pathReslove = (dir: string) => resolve(__dirname, dir)
 export default ({ command }: ConfigEnv): UserConfigExport => {
   const prodMock = true
   return {
-    base: command === 'serve' ? '/' : '/vue3-fast-admin/',
+    base: '/',
+    // base: command === 'serve' ? '/' : '/vue3-fast-admin/',
     css: {
       preprocessorOptions: {
         scss: {
