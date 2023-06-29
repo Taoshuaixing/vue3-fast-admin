@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-28 17:59:08
+ * @LastEditTime: 2023-06-29 14:34:48
 -->
 <template>
   <div class="header">
@@ -29,29 +29,32 @@
         </transition-group>
       </el-breadcrumb>
     </div>
-    <el-divider />
-    <div class="header-user"></div>
+    <!-- <el-divider /> -->
+    <div class="header-user">
+      <Tags />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { watch, reactive } from 'vue'
+import Tags from './components/Tags.vue'
+
 const route = useRoute()
 const levelList: any = reactive([])
 watch(
   () => route.matched,
   (val) => {
-    console.log(val)
     getBreadcrumb(val)
   },
   { immediate: true }
 )
+
+// 面包屑
 function getBreadcrumb (list: any) {
   levelList.length = 0
   let matched = list.filter((item: any) => item.meta && item.meta.title)
-  console.log(matched)
-
   const first = matched[0]
 
   if (!isDashboard(first)) {
@@ -65,7 +68,6 @@ function getBreadcrumb (list: any) {
   }
 
   levelList.push(...matched.filter((item: any) => item.meta && item.meta.title && item.meta.breadcrumb !== false))
-  console.log(levelList)
 }
 function isDashboard (meta: any) {
   const name = meta && meta.name
@@ -74,10 +76,18 @@ function isDashboard (meta: any) {
   }
   return name.trim().toLocaleLowerCase() === 'Home'.toLocaleLowerCase()
 }
+
+
 </script>
 
 <style lang="less" scoped>
 .header {
   padding: 20px;
+
+  .header-user {
+    margin-top: 10px;
+    border-top: 1px solid #ededed;
+    padding-top: 10px;
+  }
 }
 </style>

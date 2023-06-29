@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-28 11:36:24
+ * @LastEditTime: 2023-06-29 11:13:40
 -->
 <template>
   <div class="common-layout">
@@ -51,5 +51,9 @@ import Header from './components/Header/index.vue'
 .el-aside {
   height: 100vh;
   background: #00bfa6;
+}
+
+.el-header {
+  --el-header-height: none;
 }
 </style>
