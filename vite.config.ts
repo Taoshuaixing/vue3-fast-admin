@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 19:07:56
+ * @LastEditTime: 2023-06-29 19:18:20
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv } from 'vite'
@@ -64,8 +64,10 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       })
     ],
     server: {
+      host: '0.0.0.0',
       port: 8080,
       open: false,
+      cors: true, // 允许跨域
       proxy: {
         '/api': {
           target: '',
