@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 14:34:48
+ * @LastEditTime: 2023-06-29 17:42:45
 -->
 <template>
   <div class="header">
@@ -28,9 +28,21 @@
           </el-breadcrumb-item>
         </transition-group>
       </el-breadcrumb>
+      <el-dropdown>
+        <el-avatar
+          :size="30"
+          :src="avatar ? avatar : 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
+        />
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="$router.replace('/')">首页</el-dropdown-item>
+            <el-dropdown-item @click="setPassword">修改密码</el-dropdown-item>
+            <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
-    <!-- <el-divider /> -->
-    <div class="header-user">
+    <div class="header-tags">
       <Tags />
     </div>
   </div>
@@ -38,13 +50,19 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { watch, reactive } from 'vue'
-import Tags from './components/Tags.vue'
+import routes from '@/router'
 
-const route = useRoute()
+import { watch, reactive, computed } from 'vue'
+import Tags from './components/Tags.vue'
+import store from '@/store'
+import { ElMessage } from 'element-plus'
+
+const router: any = useRoute()
 const levelList: any = reactive([])
+const avatar = computed(() => store.state.user.avatar)
+
 watch(
-  () => route.matched,
+  () => router.matched,
   (val) => {
     getBreadcrumb(val)
   },
@@ -77,17 +95,41 @@ function isDashboard (meta: any) {
   return name.trim().toLocaleLowerCase() === 'Home'.toLocaleLowerCase()
 }
 
+//修改密码
+const setPassword = () => {
+  ElMessage.warning('请联系管理员')
 
+}
+
+//退出登录
+const loginOut = () => {
+  store.dispatch('user/logout').then(() => {
+    console.log(routes);
+
+    routes.push('/login')
+  }).catch(err => console.log(err))
+}
 </script>
 
 <style lang="less" scoped>
 .header {
   padding: 20px;
 
-  .header-user {
+  .header-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-tags {
     margin-top: 10px;
     border-top: 1px solid #ededed;
     padding-top: 10px;
   }
+
+}
+
+.el-avatar {
+  background: none;
 }
 </style>

@@ -67,7 +67,7 @@ const userModule: Module<User, any> = {
     },
 
     // user logout
-    logout({ commit, state, dispatch }) {
+    logout({ commit, state }) {
       return new Promise((resolve, reject) => {
         user_logout(state.token)
           .then((res) => {
@@ -75,8 +75,7 @@ const userModule: Module<User, any> = {
             commit('SET_ROLES', '')
             commit('SET_NAME', '')
             commit('SET_AVATAR', '')
-            dispatch('tagsView/delAllViews', null, { root: true })
-
+            // dispatch('tagsView/delAllViews', null, { root: true })
             resolve(res)
           })
           .catch((error) => {

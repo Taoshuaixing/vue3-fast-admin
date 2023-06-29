@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-28 14:41:45
+ * @LastEditTime: 2023-06-29 17:20:58
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -105,6 +105,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ]
   }
 ]
+
 export const asyncRoutes = []
 export const router = createRouter({
   history: createWebHashHistory(),

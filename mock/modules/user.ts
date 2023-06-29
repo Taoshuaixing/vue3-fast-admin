@@ -6,7 +6,7 @@ const userList = [
     password: '123',
     role: 'admin',
     introduction: '管理员',
-    avatar: 'https://www.xueyueob.cn/cube/cube01.bmp',
+    avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',
     email: 'admin@qq.com',
     createTime: 1623318878699
   },
@@ -15,17 +15,17 @@ const userList = [
     password: '456',
     role: 'editor',
     introduction: '搬砖码农',
-    avatar: 'https://www.xueyueob.cn/cube/cube02.bmp',
+    avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',
     email: 'editor@qq.com',
     createTime: 1623328878699
   },
   {
-    username: 'xueyue',
-    password: '123456',
+    username: 'tsx',
+    password: 'a41052619A',
     role: 'admin',
     introduction: '否定先生',
-    avatar: 'https://www.xueyueob.cn/icons/favicon.ico',
-    email: 'xueyue@qq.com',
+    avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',
+    email: 'tsx@qq.com',
     createTime: 1625213469913
   }
 ]

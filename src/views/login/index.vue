@@ -47,6 +47,10 @@
             @click="submitForm"
           />
           <!-- <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button> -->
+          <div class="user-password">
+            <p>用户名：admin 密码：123</p>
+            <p>用户名：editor 密码：456</p>
+          </div>
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a
@@ -139,6 +143,15 @@ const submitForm = async () => {
 
 <style lang="less" scoped>
 @import '@/styles/font-text.css';
+
+.user-password {
+  font-size: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  color: #20dbc2;
+  opacity: 0.5;
+}
 
 .container {
   position: relative;

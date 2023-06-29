@@ -1,7 +1,7 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  border:0
+  border: 0;
 }
 /* body{
   -webkit-filter: grayscale(100%);
@@ -12,3 +12,6 @@
   filter: gray;
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 } */
+#nprogress .bar {
+  background: #00bfa6 !important;
+}
