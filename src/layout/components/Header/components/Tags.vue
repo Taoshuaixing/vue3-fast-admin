@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-28 18:13:51
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 15:54:05
+ * @LastEditTime: 2023-06-30 13:47:04
 -->
     
 <template >
@@ -23,43 +23,17 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, watch } from 'vue'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
-
-const dynamicTags: any = reactive([])
-watch(
-  () => route.matched,
-  (val) => {
-    getTags(val)
+const props = defineProps({
+  dynamicTags: {
+    type: Array<any>,
+    default: []
   },
-  { immediate: true }
-)
-
-//get tags
-function getTags (val: any) {
-  const item: any = {
-    path: val[val.length - 1].path,
-    title: val[val.length - 1].meta.title,
-    checked: false
-  }
-  let count = 0
-  dynamicTags.forEach(element => {
-
-    if (element.title === item.title) {
-      count++
-    }
-  });
-  if (!count) {
-    dynamicTags.push(item)
-
-  }
-}
+})
 
 //close tags
 const handleClose = (tag: any) => {
-  dynamicTags.splice(dynamicTags.indexOf(tag), 1)
+  props.dynamicTags.splice(props.dynamicTags.indexOf(tag), 1)
 
 }
 </script>

@@ -4,30 +4,12 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 17:42:45
+ * @LastEditTime: 2023-06-30 14:32:15
 -->
 <template>
   <div class="header">
     <div class="header-list">
-      <el-breadcrumb separator="/">
-        <transition-group name="breadcrumb">
-          <el-breadcrumb-item
-            v-for="(item, index) of levelList"
-            :key="item.path"
-          >
-            <span
-              v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
-              class="no-redirect"
-            >
-              {{ item.meta.title }}
-            </span>
-            <router-link
-              v-else
-              :to="item.redirect || item.path"
-            >{{ item.meta.title }}</router-link>
-          </el-breadcrumb-item>
-        </transition-group>
-      </el-breadcrumb>
+      <Breadcrumb :levelList="state.levelList" />
       <el-dropdown>
         <el-avatar
           :size="30"
@@ -43,7 +25,7 @@
       </el-dropdown>
     </div>
     <div class="header-tags">
-      <Tags />
+      <Tags :dynamicTags="state.dynamicTags" />
     </div>
   </div>
 </template>
@@ -54,24 +36,49 @@ import routes from '@/router'
 
 import { watch, reactive, computed } from 'vue'
 import Tags from './components/Tags.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
 import store from '@/store'
 import { ElMessage } from 'element-plus'
 
 const router: any = useRoute()
-const levelList: any = reactive([])
+const state: any = reactive({
+  levelList: [],
+  dynamicTags: []
+})
 const avatar = computed(() => store.state.user.avatar)
 
 watch(
   () => router.matched,
   (val) => {
     getBreadcrumb(val)
+    getTags(val)
+
   },
   { immediate: true }
 )
+//get tags
+function getTags (val: any) {
+  const item: any = {
+    path: val[val.length - 1].path,
+    title: val[val.length - 1].meta.title,
+    checked: false
+  }
+  let count = 0
+  state.dynamicTags.forEach((element: { title: string }) => {
 
+    if (element.title === item.title) {
+      count++
+    }
+  });
+  if (!count) {
+    state.dynamicTags.push(item)
+
+  }
+}
 // 面包屑
 function getBreadcrumb (list: any) {
-  levelList.length = 0
+  console.log(list);
+
   let matched = list.filter((item: any) => item.meta && item.meta.title)
   const first = matched[0]
 
@@ -85,7 +92,7 @@ function getBreadcrumb (list: any) {
     matched = [nav].concat(matched)
   }
 
-  levelList.push(...matched.filter((item: any) => item.meta && item.meta.title && item.meta.breadcrumb !== false))
+  state.levelList = matched.filter((item: any) => item.meta && item.meta.title && item.meta.breadcrumb !== false)
 }
 function isDashboard (meta: any) {
   const name = meta && meta.name
@@ -113,16 +120,16 @@ const loginOut = () => {
 
 <style lang="less" scoped>
 .header {
-  padding: 20px;
+  padding: 0 20px;
 
   .header-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5px 0;
   }
 
   .header-tags {
-    margin-top: 10px;
     border-top: 1px solid #ededed;
     padding-top: 10px;
   }

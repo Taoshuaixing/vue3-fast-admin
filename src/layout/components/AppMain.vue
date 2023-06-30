@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 17:36:13
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-28 10:16:20
+ * @LastEditTime: 2023-06-30 11:08:22
 -->
 <template>
   <section class="app-main">
@@ -34,7 +34,7 @@ export default defineComponent({
 
   /* 84 = navbar + tags-view = 50 +34 */
   /* height: calc(100vh - 84px); */
-  padding: 20px;
+  padding: 0 20px;
   overflow-x: hidden;
 }
 </style>

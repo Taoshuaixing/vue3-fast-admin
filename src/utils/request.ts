@@ -1,10 +1,17 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: 陶帅星
+ * @Date: 2022-11-20 15:32:23
+ * @LastEditors: 陶帅星
+ * @LastEditTime: 2023-06-30 11:46:55
+ */
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import { getToken, removeToken, removeRoles, removeName, removeAvatar } from './auth'
 
 const service = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
-  // baseURL: 'http://localhost:8080',
   timeout: 10000 // request timeout
 })
 
