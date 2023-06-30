@@ -15,3 +15,16 @@
 #nprogress .bar {
   background: #00bfa6 !important;
 }
+#nprogress .spinner-icon {
+  border-top-color: #00bfa6 !important;
+  border-left-color: #00bfa6 !important;
+}
+.card {
+  box-sizing: border-box;
+  padding: 20px;
+  overflow-x: hidden;
+  background-color: #fff;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}

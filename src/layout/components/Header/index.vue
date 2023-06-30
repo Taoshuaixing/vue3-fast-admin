@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 14:32:15
+ * @LastEditTime: 2023-06-30 18:23:55
 -->
 <template>
   <div class="header">
@@ -12,7 +12,7 @@
       <Breadcrumb :levelList="state.levelList" />
       <el-dropdown>
         <el-avatar
-          :size="30"
+          :size="40"
           :src="avatar ? avatar : 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
         />
         <template #dropdown>
@@ -120,18 +120,16 @@ const loginOut = () => {
 
 <style lang="less" scoped>
 .header {
-  padding: 0 20px;
-
   .header-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 5px 20px 0 0;
   }
 
   .header-tags {
     border-top: 1px solid #ededed;
-    padding-top: 10px;
+    padding: 10px 0;
   }
 
 }

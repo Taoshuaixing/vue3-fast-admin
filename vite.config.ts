@@ -22,7 +22,6 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
   const { VITE_BASE_API } = loadEnv(command, CWD)
   return {
     base: VITE_BASE_API,
-    // base: command === 'serve' ? '/' : '/vue3-fast-admin/',
     css: {
       preprocessorOptions: {
         scss: {

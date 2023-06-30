@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-29 17:20:58
+ * @LastEditTime: 2023-06-30 18:05:24
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -31,13 +31,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/setting',
         component: () => import('@/views/setting/index.vue'),
         name: 'Setting',
-        meta: { title: '设置', icon: 'Tools', roles: ['admin'] }
+        meta: { title: '权限管理', icon: 'Tools', roles: ['admin'] }
       },
       {
         path: '/menu',
         name: 'Menu',
         component: () => import('@/views/menu/index.vue'),
-        meta: { title: '菜单', icon: 'Menu', roles: ['admin', 'editor'] },
+        meta: { title: '菜单嵌套', icon: 'Menu', roles: ['admin', 'editor'] },
         redirect: '/menu2',
         children: [
           {

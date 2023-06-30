@@ -4,13 +4,13 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-27 18:09:46
+ * @LastEditTime: 2023-06-30 16:59:00
  */
 import { createApp, createVNode } from 'vue'
 
 // element-plus
 import ElementPlus, { ElIcon } from 'element-plus'
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 import * as Icons from '@element-plus/icons-vue'
 
 // global css
