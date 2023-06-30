@@ -4,23 +4,24 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 10:20:38
+ * @LastEditTime: 2023-06-30 10:44:37
  */
 import { resolve } from 'path'
-import { UserConfigExport, ConfigEnv } from 'vite'
+import { UserConfigExport, ConfigEnv, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { viteMockServe } from 'vite-plugin-mock'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import viteCompression from 'vite-plugin-compression'
+const CWD = process.cwd()
 
 const pathReslove = (dir: string) => resolve(__dirname, dir)
-
 export default ({ command }: ConfigEnv): UserConfigExport => {
   const prodMock = true
+  const { VITE_BASE_API } = loadEnv(command, CWD)
   return {
-    base: '/',
+    base: VITE_BASE_API,
     // base: command === 'serve' ? '/' : '/vue3-fast-admin/',
     css: {
       preprocessorOptions: {

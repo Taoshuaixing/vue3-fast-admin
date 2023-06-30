@@ -44,7 +44,7 @@
             class="btn solid"
             type="submit"
             value="Login"
-            @click="submitForm"
+            @click.prevent="submitForm"
           />
           <!-- <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button> -->
           <div class="user-password">

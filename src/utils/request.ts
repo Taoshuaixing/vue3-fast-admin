@@ -3,8 +3,8 @@ import { ElMessage } from 'element-plus'
 import { getToken, removeToken, removeRoles, removeName, removeAvatar } from './auth'
 
 const service = axios.create({
-  // baseURL: import.meta.env.VITE_BASE_API,
-  baseURL: 'http://localhost:8080',
+  baseURL: import.meta.env.VITE_BASE_API,
+  // baseURL: 'http://localhost:8080',
   timeout: 10000 // request timeout
 })
 
