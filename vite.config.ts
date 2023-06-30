@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 09:53:25
+ * @LastEditTime: 2023-06-30 10:20:38
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv } from 'vite'
@@ -101,7 +101,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       cors: true, // 允许跨域
       proxy: {
         '/api': {
-          target: 'http://localhost:8080',
+          target: 'https://vue3-fast-admin.vercel.app',
           changeOrigin: true,
           ws: true,
           secure: false,
