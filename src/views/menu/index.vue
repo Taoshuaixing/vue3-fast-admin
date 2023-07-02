@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <h1>菜单</h1>
     <router-view v-slot="{ Component }">
       <component :is="Component" />

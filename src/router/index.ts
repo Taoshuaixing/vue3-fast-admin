@@ -76,6 +76,69 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '图表', icon: 'Histogram', roles: ['admin', 'editor'] }
       },
       {
+        path: '/directives',
+        name: 'Directives',
+        component: () => import('@/views/directives/index.vue'),
+        meta: { title: '自定义指令', icon: 'Stamp', roles: ['admin', 'editor'] },
+        // redirect: '/404',
+        children: [
+          {
+            path: '/copyDirect',
+            component: () => import('@/views/directives/components/CopyDirect.vue'),
+            name: 'CopyDirect',
+            meta: {
+              title: '复制指令',
+              icon: 'Menu'
+            }
+          },
+          {
+            path: '/debounceDirect',
+            component: () => import('@/views/directives/components/DebounceDirect.vue'),
+            name: 'DebounceDirect',
+            meta: {
+              title: '防抖指令',
+              icon: 'Menu'
+            }
+          },
+          {
+            path: '/dragDirect',
+            component: () => import('@/views/directives/components/DragDirect.vue'),
+            name: 'DragDirect',
+            meta: {
+              title: '拖拽指令',
+              icon: 'Menu'
+            }
+          },
+          {
+            path: '/longpressDirect',
+            component: () => import('@/views/directives/components/LongpressDirect.vue'),
+            name: 'LongpressDirect',
+            meta: {
+              title: '长按指令',
+              icon: 'Menu'
+            }
+          },
+          {
+            path: '/throttleDirect',
+            component: () => import('@/views/directives/components/ThrottleDirect.vue'),
+            name: 'ThrottleDirect',
+            meta: {
+              title: '节流指令',
+              icon: 'Menu'
+            }
+          },
+          {
+            path: '/watermarkDirect',
+            component: () => import('@/views/directives/components/WatermarkDirect.vue'),
+            name: 'WatermarkDirect',
+            meta: {
+              title: '水印指令',
+              icon: 'Menu'
+            }
+          }
+        ]
+      },
+      {
         path: '/erro-page',
         name: 'ErroPage',
         component: () => import('@/views/erro-page/index.vue'),

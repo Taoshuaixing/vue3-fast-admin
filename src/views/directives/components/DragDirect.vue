@@ -2,13 +2,13 @@
  * @Descripttion: 
  * @version: 
  * @Author: 陶帅星
- * @Date: 2023-06-28 10:25:08
+ * @Date: 2023-07-01 15:24:57
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-01 13:15:48
+ * @LastEditTime: 2023-07-01 15:33:08
 -->
 <template>
-  <div class="card">
-    chart
+  <div>
+    拖拽指令
   </div>
 </template>
 

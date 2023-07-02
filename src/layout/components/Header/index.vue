@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 18:23:55
+ * @LastEditTime: 2023-07-01 13:17:51
 -->
 <template>
   <div class="header">
@@ -136,5 +136,6 @@ const loginOut = () => {
 
 .el-avatar {
   background: none;
+  cursor: pointer;
 }
 </style>

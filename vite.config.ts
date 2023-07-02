@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 10:44:37
+ * @LastEditTime: 2023-07-01 13:37:26
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv, loadEnv } from 'vite'
@@ -47,21 +47,21 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         import { setupProdMockServer } from './mockProdServer';
         setupProdMockServer();
       `
-      }),
-      AutoImport({
-        resolvers: [
-          ElementPlusResolver({
-            importStyle: 'sass'
-          })
-        ]
-      }),
-      Components({
-        resolvers: [
-          ElementPlusResolver({
-            importStyle: 'sass'
-          })
-        ]
       })
+      // AutoImport({
+      //   resolvers: [
+      //     ElementPlusResolver({
+      //       importStyle: 'sass'
+      //     })
+      //   ]
+      // }),
+      // Components({
+      //   resolvers: [
+      //     ElementPlusResolver({
+      //       importStyle: 'sass'
+      //     })
+      //   ]
+      // })
     ],
     resolve: {
       alias: {

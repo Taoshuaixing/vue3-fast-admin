@@ -2,13 +2,13 @@
  * @Descripttion: 
  * @version: 
  * @Author: 陶帅星
- * @Date: 2023-06-28 10:25:08
+ * @Date: 2023-07-01 15:25:35
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-01 13:15:48
+ * @LastEditTime: 2023-07-01 15:37:37
 -->
 <template>
-  <div class="card">
-    chart
+  <div>
+    节流指令
   </div>
 </template>
 
