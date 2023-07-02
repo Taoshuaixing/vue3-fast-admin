@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-02 17:18:48
+ * @LastEditTime: 2023-07-02 18:54:59
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -69,10 +69,66 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: '/chart',
-        component: () => import('@/views/chart/index.vue'),
-        name: 'Chart',
-        meta: { title: '图表', icon: 'Histogram', roles: ['admin', 'editor'] }
+        path: '/echarts',
+        name: 'Echarts',
+        redirect: '/echarts/lineChart',
+        meta: { title: 'Echarts', icon: 'Histogram', roles: ['admin', 'editor'] },
+        children: [
+          {
+            path: '/echarts/lineChart',
+            component: () => import('@/views/echarts/LineChart.vue'),
+            name: 'LineChart',
+            meta: {
+              title: '折线图',
+              icon: 'Flag'
+            }
+          },
+          {
+            path: '/echarts/pieChart',
+            component: () => import('@/views/echarts/PieChart.vue'),
+            name: 'PieChart',
+            meta: {
+              title: '饼图',
+              icon: 'Flag'
+            }
+          },
+          {
+            path: '/echarts/barChart',
+            component: () => import('@/views/echarts/BarChart.vue'),
+            name: 'BarChart',
+            meta: {
+              title: '柱状图',
+              icon: 'Flag'
+            }
+          },
+          {
+            path: '/echarts/radarChart',
+            component: () => import('@/views/echarts/RadarChart.vue'),
+            name: 'RadarChart',
+            meta: {
+              title: '雷达图',
+              icon: 'Flag'
+            }
+          },
+          {
+            path: '/echarts/mapChart',
+            component: () => import('@/views/echarts/MapChart.vue'),
+            name: 'MapChart',
+            meta: {
+              title: '中国地图',
+              icon: 'Flag'
+            }
+          },
+          {
+            path: '/echarts/richChart',
+            component: () => import('@/views/echarts/RichChart.vue'),
+            name: 'RichChart',
+            meta: {
+              title: '富文本图',
+              icon: 'Flag'
+            }
+          }
+        ]
       },
       {
         path: '/directives',
