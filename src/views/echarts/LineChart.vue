@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-28 10:25:08
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-02 19:00:09
+ * @LastEditTime: 2023-07-02 21:57:46
 -->
 <template>
   <div
@@ -13,7 +13,7 @@
   ></div>
 </template>
 
-<script setup lang="ts" name="columnChart">
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import * as echarts from "echarts";
 import { useEcharts } from "@/hooks/useEcharts";
@@ -21,126 +21,184 @@ const echartsRef = ref<HTMLElement>();
 onMounted(() => {
   let myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement);
   let option: echarts.EChartsOption = {
+    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+    title: {
+      text: 'Gradient Stacked Area Chart'
+    },
     tooltip: {
-      trigger: "axis",
+      trigger: 'axis',
       axisPointer: {
-        type: "shadow"
+        type: 'cross',
+        label: {
+          backgroundColor: '#6a7985'
+        }
       }
     },
     legend: {
-      textStyle: {
-        color: "#a1a1a1"
+      data: ['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
       }
     },
     grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
       containLabel: true
     },
     xAxis: [
       {
-        type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        axisLabel: {
-          color: "#a1a1a1"
-        }
+        type: 'category',
+        boundaryGap: false,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
       }
     ],
     yAxis: [
       {
-        type: "value",
-        axisLabel: {
-          color: "#a1a1a1"
-        }
+        type: 'value'
       }
     ],
     series: [
       {
-        name: "Direct",
-        type: "bar",
-        emphasis: {
-          focus: "series"
+        name: 'Line 1',
+        type: 'line',
+        stack: 'Total',
+        smooth: true,
+        lineStyle: {
+          width: 0
         },
-        data: [320, 332, 301, 334, 390, 330, 320]
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgb(128, 255, 165)'
+            },
+            {
+              offset: 1,
+              color: 'rgb(1, 191, 236)'
+            }
+          ])
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: [140, 232, 101, 264, 90, 340, 250]
       },
       {
-        name: "Email",
-        type: "bar",
-        stack: "Ad",
-        emphasis: {
-          focus: "series"
+        name: 'Line 2',
+        type: 'line',
+        stack: 'Total',
+        smooth: true,
+        lineStyle: {
+          width: 0
         },
-        data: [120, 132, 101, 134, 90, 230, 210]
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgb(0, 221, 255)'
+            },
+            {
+              offset: 1,
+              color: 'rgb(77, 119, 255)'
+            }
+          ])
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: [120, 282, 111, 234, 220, 340, 310]
       },
       {
-        name: "Union Ads",
-        type: "bar",
-        stack: "Ad",
-        emphasis: {
-          focus: "series"
+        name: 'Line 3',
+        type: 'line',
+        stack: 'Total',
+        smooth: true,
+        lineStyle: {
+          width: 0
         },
-        data: [220, 182, 191, 234, 290, 330, 310]
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgb(55, 162, 255)'
+            },
+            {
+              offset: 1,
+              color: 'rgb(116, 21, 219)'
+            }
+          ])
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: [320, 132, 201, 334, 190, 130, 220]
       },
       {
-        name: "Video Ads",
-        type: "bar",
-        stack: "Ad",
-        emphasis: {
-          focus: "series"
+        name: 'Line 4',
+        type: 'line',
+        stack: 'Total',
+        smooth: true,
+        lineStyle: {
+          width: 0
         },
-        data: [150, 232, 201, 154, 190, 330, 410]
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgb(255, 0, 135)'
+            },
+            {
+              offset: 1,
+              color: 'rgb(135, 0, 157)'
+            }
+          ])
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: [220, 402, 231, 134, 190, 230, 120]
       },
       {
-        name: "Search Engine",
-        type: "bar",
-        data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-        emphasis: {
-          focus: "series"
+        name: 'Line 5',
+        type: 'line',
+        stack: 'Total',
+        smooth: true,
+        lineStyle: {
+          width: 0
         },
-        markLine: {
-          lineStyle: {
-            type: "dashed"
-          },
-          data: [[{ type: "min" }, { type: "max" }]]
-        }
-      },
-      {
-        name: "Baidu",
-        type: "bar",
-        barWidth: 5,
-        stack: "Search Engine",
-        emphasis: {
-          focus: "series"
+        showSymbol: false,
+        label: {
+          show: true,
+          position: 'top'
         },
-        data: [620, 732, 701, 734, 1090, 1130, 1120]
-      },
-      {
-        name: "Google",
-        type: "bar",
-        stack: "Search Engine",
-        emphasis: {
-          focus: "series"
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgb(255, 191, 0)'
+            },
+            {
+              offset: 1,
+              color: 'rgb(224, 62, 76)'
+            }
+          ])
         },
-        data: [120, 132, 101, 134, 290, 230, 220]
-      },
-      {
-        name: "Bing",
-        type: "bar",
-        stack: "Search Engine",
         emphasis: {
-          focus: "series"
+          focus: 'series'
         },
-        data: [60, 72, 71, 74, 190, 130, 110]
-      },
-      {
-        name: "Others",
-        type: "bar",
-        stack: "Search Engine",
-        emphasis: {
-          focus: "series"
-        },
-        data: [62, 82, 91, 84, 109, 110, 120]
+        data: [220, 302, 181, 234, 210, 290, 150]
       }
     ]
   };
