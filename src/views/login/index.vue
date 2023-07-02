@@ -21,7 +21,7 @@
                 type="text"
                 autocomplete="off"
                 autofocus="true"
-                placeholder="Username"
+                placeholder="用户名：admin / editor"
                 :prefix-icon="User"
               />
             </el-form-item>
@@ -32,7 +32,7 @@
               <el-input
                 size="large"
                 v-model="loginForm.password"
-                placeholder="Password"
+                placeholder="密码：123456"
                 type="password"
                 autocomplete="off"
                 @keyup.enter="submitForm"
@@ -47,10 +47,10 @@
             @click.prevent="submitForm"
           />
           <!-- <el-button type="primary" :loading="btnLoading" @click="submitForm">登录</el-button> -->
-          <div class="user-password">
+          <!-- <div class="user-password">
             <p>用户名：admin 密码：123</p>
             <p>用户名：editor 密码：456</p>
-          </div>
+          </div> -->
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a

@@ -77,6 +77,10 @@ const userModule: Module<User, any> = {
             commit('SET_AVATAR', '')
             // dispatch('tagsView/delAllViews', null, { root: true })
             resolve(res)
+            ElMessage({
+              type: 'success',
+              message: '退出成功'
+            })
           })
           .catch((error) => {
             reject(error)

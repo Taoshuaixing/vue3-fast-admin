@@ -3,7 +3,7 @@ import { MockMethod } from 'vite-plugin-mock'
 const userList = [
   {
     username: 'admin',
-    password: '123',
+    password: '123456',
     role: 'admin',
     introduction: '管理员',
     avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',
@@ -12,7 +12,7 @@ const userList = [
   },
   {
     username: 'editor',
-    password: '456',
+    password: '123456',
     role: 'editor',
     introduction: '搬砖码农',
     avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',

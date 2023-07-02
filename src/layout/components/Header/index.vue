@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-01 13:17:51
+ * @LastEditTime: 2023-07-02 16:56:54
 -->
 <template>
   <div class="header">
@@ -77,7 +77,7 @@ function getTags (val: any) {
 }
 // 面包屑
 function getBreadcrumb (list: any) {
-  console.log(list);
+  // console.log(list);
 
   let matched = list.filter((item: any) => item.meta && item.meta.title)
   const first = matched[0]

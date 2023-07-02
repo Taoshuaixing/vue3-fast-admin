@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-30 18:05:24
+ * @LastEditTime: 2023-07-02 17:18:48
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -36,25 +36,24 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         path: '/menu',
         name: 'Menu',
-        component: () => import('@/views/menu/index.vue'),
         meta: { title: '菜单嵌套', icon: 'Menu', roles: ['admin', 'editor'] },
-        redirect: '/menu2',
+        redirect: '/menu/menu2',
         children: [
           {
-            path: '/menu1',
+            path: '/menu/menu1',
             name: 'Menu1',
             component: () => import('@/views/menu/menu10.vue'),
             meta: { title: '菜单1', roles: ['admin', 'editor'] },
-            redirect: '/menu1-2',
+            redirect: '/menu/menu1/menu1-1',
             children: [
               {
-                path: '/menu1-1',
+                path: '/menu/menu1/menu1-1',
                 component: () => import('@/views/menu/menu11.vue'),
                 name: 'Menu1-1',
                 meta: { title: '菜单1-1', roles: ['admin'] }
               },
               {
-                path: '/menu1-2',
+                path: '/menu/menu1/menu1-2',
                 component: () => import('@/views/menu/menu12.vue'),
                 name: 'Menu1-2',
                 meta: { title: '菜单1-2', roles: ['admin', 'editor'] }
@@ -62,7 +61,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             ]
           },
           {
-            path: '/menu2',
+            path: '/menu/menu2',
             component: () => import('@/views/menu/menu2.vue'),
             name: 'Menu2',
             meta: { title: '菜单2', roles: ['admin', 'editor'] }
@@ -78,13 +77,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         path: '/directives',
         name: 'Directives',
-        component: () => import('@/views/directives/index.vue'),
         meta: { title: '自定义指令', icon: 'Stamp', roles: ['admin', 'editor'] },
-        // redirect: '/404',
+        redirect: '/directives/copyDirect',
         children: [
           {
-            path: '/copyDirect',
-            component: () => import('@/views/directives/components/CopyDirect.vue'),
+            path: '/directives/copyDirect',
+            component: () => import('@/views/directives/CopyDirect.vue'),
             name: 'CopyDirect',
             meta: {
               title: '复制指令',
@@ -92,8 +90,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/debounceDirect',
-            component: () => import('@/views/directives/components/DebounceDirect.vue'),
+            path: '/directives/debounceDirect',
+            component: () => import('@/views/directives/DebounceDirect.vue'),
             name: 'DebounceDirect',
             meta: {
               title: '防抖指令',
@@ -101,8 +99,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/dragDirect',
-            component: () => import('@/views/directives/components/DragDirect.vue'),
+            path: '/directives/dragDirect',
+            component: () => import('@/views/directives/DragDirect.vue'),
             name: 'DragDirect',
             meta: {
               title: '拖拽指令',
@@ -110,8 +108,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/longpressDirect',
-            component: () => import('@/views/directives/components/LongpressDirect.vue'),
+            path: '/directives/longpressDirect',
+            component: () => import('@/views/directives/LongpressDirect.vue'),
             name: 'LongpressDirect',
             meta: {
               title: '长按指令',
@@ -119,8 +117,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/throttleDirect',
-            component: () => import('@/views/directives/components/ThrottleDirect.vue'),
+            path: '/directives/throttleDirect',
+            component: () => import('@/views/directives/ThrottleDirect.vue'),
             name: 'ThrottleDirect',
             meta: {
               title: '节流指令',
@@ -128,8 +126,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/watermarkDirect',
-            component: () => import('@/views/directives/components/WatermarkDirect.vue'),
+            path: '/directives/watermarkDirect',
+            component: () => import('@/views/directives/WatermarkDirect.vue'),
             name: 'WatermarkDirect',
             meta: {
               title: '水印指令',
@@ -139,14 +137,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: '/erro-page',
+        path: '/error',
         name: 'ErroPage',
-        component: () => import('@/views/erro-page/index.vue'),
         meta: { title: '错误页面', icon: 'WarningFilled', roles: ['admin', 'editor'] },
-        redirect: '/404',
+        redirect: '/error/404',
         children: [
           {
-            path: '/404',
+            path: '/error/404',
             component: () => import('@/views/erro-page/404.vue'),
             name: '404',
             meta: {
@@ -155,7 +152,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             }
           },
           {
-            path: '/401',
+            path: '/error/401',
             component: () => import('@/views/erro-page/401.vue'),
             name: '401',
             meta: {
