@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-02 18:54:59
+ * @LastEditTime: 2023-07-03 14:40:17
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -133,7 +133,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         path: '/directives',
         name: 'Directives',
-        meta: { title: '自定义指令', icon: 'Stamp', roles: ['admin', 'editor'] },
+        meta: { title: '自定义指令', icon: 'Stamp', roles: ['admin'] },
         redirect: '/directives/copyDirect',
         children: [
           {

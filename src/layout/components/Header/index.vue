@@ -4,13 +4,16 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:39
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-02 16:56:54
+ * @LastEditTime: 2023-07-03 14:34:19
 -->
 <template>
   <div class="header">
     <div class="header-list">
       <Breadcrumb :levelList="state.levelList" />
+      <div class="header-user">{{ name }}</div>
+
       <el-dropdown>
+
         <el-avatar
           :size="40"
           :src="avatar ? avatar : 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
@@ -46,6 +49,7 @@ const state: any = reactive({
   dynamicTags: []
 })
 const avatar = computed(() => store.state.user.avatar)
+const name = computed(() => store.state.user.name)
 
 watch(
   () => router.matched,
@@ -125,6 +129,7 @@ const loginOut = () => {
     align-items: center;
     justify-content: space-between;
     padding: 5px 20px 0 0;
+    position: relative;
   }
 
   .header-tags {
@@ -132,6 +137,11 @@ const loginOut = () => {
     padding: 10px 0;
   }
 
+  .header-user {
+    position: absolute;
+    right: 70px;
+    box-sizing: border-box;
+  }
 }
 
 .el-avatar {

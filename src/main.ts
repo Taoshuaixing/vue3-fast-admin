@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-02 16:28:35
+ * @LastEditTime: 2023-07-03 14:23:00
  */
 import { createApp, createVNode } from 'vue'
 
@@ -25,11 +25,11 @@ import directives from '@/directives/index'
 import './permission'
 
 // utils
-// import { DateFormat } from './utils/util'
+import { DateFormat } from './utils/util'
 
 const app = createApp(App)
 
-app.use(ElementPlus).use(router).use(directives).use(store).mount('#app')
+app.use(ElementPlus).use(router).use(directives).use(store).provide('$DateFormat', DateFormat).mount('#app')
 
 const Icon = (props: { name: string; size: number | string; color: string }) => {
   const { name, size, color } = props

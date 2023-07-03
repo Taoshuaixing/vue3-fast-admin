@@ -142,8 +142,6 @@ const submitForm = async () => {
 </script>
 
 <style lang="less" scoped>
-@import '@/styles/font-text.css';
-
 .user-password {
   font-size: 10px;
   display: flex;

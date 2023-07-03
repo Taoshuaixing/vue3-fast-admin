@@ -26,7 +26,7 @@ const userList = [
     introduction: '否定先生',
     avatar: 'http://img61.ddimg.cn/upload_img/00890/new/avatar-1688026436.png',
     email: 'tsx@qq.com',
-    createTime: 1625213469913
+    createTime: new Date()
   }
 ]
 
