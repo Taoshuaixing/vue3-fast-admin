@@ -20,7 +20,7 @@
 git clone https://github.com/Taoshuaixing/vue3-fast-admin.git
 
 # 进入项目目录
-cd vue3-element-admin-ts
+cd vue3-fast-admin
 
 # 安装依赖
 npm install
