@@ -4,27 +4,25 @@
  * @Author: 陶帅星
  * @Date: 2023-06-27 16:57:23
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-06-28 10:12:15
+ * @LastEditTime: 2023-07-03 16:25:39
 -->
 <template>
-  <div class="menu">
-    <el-menu
-      :router="true"
-      :default-active="$route.path"
-      :collapse="isCollapse"
-      :show-timeout="200"
-      text-color="#fff"
-      background-color="#00bfa6"
-      active-text-color="#003739"
-    >
-      <AsideItem
-        v-for="item of routerList"
-        :key="item.path"
-        :index="item.path"
-        :nav="item"
-      />
-    </el-menu>
-  </div>
+  <el-menu
+    :router="true"
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :show-timeout="200"
+    text-color="#fff"
+    background-color="#00bfa6"
+    active-text-color="#003739"
+  >
+    <AsideItem
+      v-for="item of routerList"
+      :key="item.path"
+      :index="item.path"
+      :nav="item"
+    />
+  </el-menu>
 </template>
 
 <script setup lang='ts'>
@@ -80,4 +78,8 @@ const filterChildrens = (routers: any) => {
 }
 </script>
 
-<style lang='less' scoped></style>
+<style lang='less' scoped>
+.el-menu {
+  border-right: none;
+}
+</style>
