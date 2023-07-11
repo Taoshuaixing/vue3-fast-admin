@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 陶帅星
+ * @Date: 2023-07-06 10:37:49
+ * @LastEditors: 陶帅星
+ * @LastEditTime: 2023-07-11 19:17:20
+-->
 # vue3-fast-admin
 
 🎉 基于 Vite 3.0 + Vue 3.0 + Vue-Router 4.0 + Vuex 4.0 + element-plus + typescript 的后台管理系统
@@ -6,7 +14,7 @@
 
 [vue3-fast-admin](https://github.com/Taoshuaixing/vue3-fast-admin) 是一个后台前端解决方案，它基于 [vue3](https://v3.cn.vuejs.org/guide/migration/introduction.html) 和 [element-plus](https://element-plus.gitee.io/#/zh-CN)实现。它使用了最新的前端技术栈，vite + vue3 + typescript ，提供最基础的框架模型，可以帮助你快速搭建企业级中后台产品原型。 PS：部分功能及设计我是参考 [@HalseySpicy](https://github.com/HalseySpicy/Geeker-Admin) 开发维护的，感谢大佬对开源社区作出的贡献！
 
-- [在线预览](https://vue3-fast-admin.vercel.app)
+- [在线预览](https://taoshuaixing.github.io/vue3-fast-admin/)
 - [国内访问](https://au1996.gitee.io/vue3-element-admin-ts)
 
 ## 前序准备
