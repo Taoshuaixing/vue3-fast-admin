@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --port 8080 --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "sh script/deploy.sh"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
