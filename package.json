@@ -1,10 +1,17 @@
 {
-  "name": "taoshuaixing-blog",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vue3-fast-admin",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "vue3-fast-admin",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite --port 8080 --host",
     "build": "vite build",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
     "preview": "vite preview",
     "deploy": "sh script/deploy.sh"
   },
