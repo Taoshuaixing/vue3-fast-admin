@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-01 13:37:26
+ * @LastEditTime: 2023-07-11 18:50:55
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv, loadEnv } from 'vite'
@@ -21,7 +21,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
   const prodMock = true
   const { VITE_BASE_API } = loadEnv(command, CWD)
   return {
-    base: VITE_BASE_API,
+    // base: VITE_BASE_API,
     css: {
       preprocessorOptions: {
         scss: {
