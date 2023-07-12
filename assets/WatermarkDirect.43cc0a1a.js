@@ -1,0 +1,1 @@
+import{_ as a,O as t,P as r,o as e,c as s,e as o}from"./index.e0c936d8.js";const c={},n={class:"card content-box"},d=[o("span",{class:"text"},"水印指令",-1)];var x=a(c,[["render",function(a,o){const c=t("waterMarker");return r((e(),s("div",n,d)),[[c,{text:"Watermark Direct",textColor:"rgba(180, 180, 180, 0.6)"}]])}]]);export{x as default};

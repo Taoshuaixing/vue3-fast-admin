@@ -1,0 +1,1 @@
+import{_ as a,o as s,c as e,p as c,m as d,e as o}from"./index.e0c936d8.js";const t={},r={class:"home card"},m=[(a=>(c("data-v-01b04ba3"),a=a(),d(),a))((()=>o("img",{class:"home-bg",src:"/vue3-fast-admin/assets/welcome.38d740bb.png",alt:"welcome"},null,-1)))];var n=a(t,[["render",function(a,c){return s(),e("div",r,m)}],["__scopeId","data-v-01b04ba3"]]);export{n as default};

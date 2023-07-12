@@ -1,0 +1,1 @@
+import{_ as a,o as e,c as n,e as r}from"./index.e0c936d8.js";const s={},o={class:"card content-box"},t=[r("h1",null,"菜单2",-1)];var c=a(s,[["render",function(a,r){return e(),n("div",o,t)}]]);export{c as default};
