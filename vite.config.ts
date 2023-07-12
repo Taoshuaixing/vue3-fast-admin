@@ -4,7 +4,7 @@
  * @Author: 陶帅星
  * @Date: 2022-11-17 17:21:33
  * @LastEditors: 陶帅星
- * @LastEditTime: 2023-07-11 19:38:29
+ * @LastEditTime: 2023-07-12 18:06:17
  */
 import { resolve } from 'path'
 import { UserConfigExport, ConfigEnv } from 'vite'
@@ -16,7 +16,7 @@ const pathReslove = (dir: string) => resolve(__dirname, dir)
 export default ({ command }: ConfigEnv): UserConfigExport => {
   const prodMock = true
   return {
-    base: '/',
+    base: '/vue3-fast-admin/',
     plugins: [
       vue(),
       viteCompression({

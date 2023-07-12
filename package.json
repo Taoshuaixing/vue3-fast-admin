@@ -2,8 +2,7 @@
   "name": "vue3-fast-admin",
   "private": false,
   "version": "0.0.1",
-  "type": "module",
-  "description": "vue3-fast-admin",
+  "homepage": "https://taoshuaixing.github.io/vue3-fast-admin/",
   "files": [
     "dist/*"
   ],
